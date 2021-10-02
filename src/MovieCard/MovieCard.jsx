@@ -1,4 +1,5 @@
 import React from 'react'
+import FavoriteButton from '../FavoriteButton/FavoriteButton'
 
 function MovieCard ({image, title, year, genre}) {
     return (
@@ -7,6 +8,7 @@ function MovieCard ({image, title, year, genre}) {
             <h1>Title{title}</h1>
             <p>year{year}</p>
             <p>genre{genre}</p>
+            
         </div>
     )
 }
