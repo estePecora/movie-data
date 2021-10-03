@@ -6,5 +6,6 @@
 
 2) luego npm start
 
-
+### Aclaración:
+Las url de las imágenes no funcionaban así que usé una imagen de referencia. Por eso son todas iguales.
 
