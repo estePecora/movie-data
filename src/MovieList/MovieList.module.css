@@ -1,0 +1,15 @@
+.moviesMainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.movieListContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.listTitleContainer {
+    padding-left: 30px;
+}

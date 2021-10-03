@@ -1,4 +1,5 @@
 import React from 'react'
+import style from './FavoriteButton.module.css'
 
 function FavoriteButton ({addFavorite, fav}) {
 
@@ -7,8 +8,8 @@ function FavoriteButton ({addFavorite, fav}) {
             <button onClick={(event) => {
                 event.preventDefault();
                 addFavorite(fav)
-               
             }}
+            className={style.favButton}
             >AddFavorite</button>
         </div>
     )

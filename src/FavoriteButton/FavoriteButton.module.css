@@ -1,0 +1,13 @@
+.favButton {
+    width: 300px;
+    margin-left: 10px;
+    padding: 10px;
+    border-style: none;
+    background-color:lightslategray;
+    color:black;
+    font-weight: 600;
+}
+
+.favButton:hover {
+    background-color: rgb(86, 98, 110);
+}

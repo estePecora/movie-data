@@ -1,0 +1,44 @@
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+}
+
+.titleContainer {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100px;
+    background-color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: lightslategray;
+}
+
+.textContainer > p {
+    margin-bottom: 1px;
+    margin-top: 0;
+}
+
+.titles {
+    color:lightslategray;
+    margin:0;
+}
+
+.moviePoster {
+    width: 300px;
+
+}

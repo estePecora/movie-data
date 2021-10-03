@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import style from './App.module.css';
 import FavoritesList from './FavoritesList/FavoritesList';
 import MovieList from './MovieList/MovieList';
 import SearchBar from './SearchBar/SearchBar';
@@ -7,7 +7,8 @@ import SearchBar from './SearchBar/SearchBar';
 const favLocalStorage = JSON.parse(localStorage.getItem('favorites') || '[]')
 
 function App() {
-  const [movieList, setMovieList ] = useState()
+  const [movieToShow, setMovieToShow] = useState()
+  const [movieResult, setMovieResult] = useState()
   const [favorites, setFavorites] = useState(favLocalStorage)
 
   
@@ -17,10 +18,11 @@ function App() {
       return res.json()
     })
     .then(data => {
-      setMovieList(data)
+      return setMovieToShow(data)
       
     })
   }, [])
+
 
   useEffect(() => {
    localStorage.setItem('favorites', JSON.stringify(favorites))
@@ -28,9 +30,20 @@ function App() {
 
 
   function onSearch(movie) {
-    const foundMovie = movieList.filter(el => el.title === movie )
-    setMovieList(foundMovie)
+    fetch('http://localhost:8000/movies')
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      const foundMovie = data.filter(el => el.title === movie )
+      return setMovieResult(foundMovie)
     
+    })
+
+  }
+
+  function onGoBack() {
+    setMovieResult(undefined)
   }
 
 
@@ -42,11 +55,14 @@ function App() {
 
 
   return (
-    <div>
-      <h1>MOVIE DATA APP</h1>
-      <SearchBar onSearch={onSearch}/>
-      <MovieList moviesToShow={movieList} addFavorite={addFavorite}/>
-      <FavoritesList moviesToShow={favorites}/>
+    <div className={style.appMainContainer}>
+      <h1 className={style.appTitle}>MOVIE DATA APP</h1>
+      <SearchBar onSearch={onSearch} onGoBack={onGoBack}/>
+      <MovieList 
+        moviesToShow={movieToShow} 
+        movieResult={movieResult} 
+        addFavorite={addFavorite}/>
+      <FavoritesList favoritesToShow={favorites}/>
       
     </div>
   );
